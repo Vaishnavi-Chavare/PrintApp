@@ -1,0 +1,182 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+/* Full-page container to control the background sections */
+.full-page-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Left section with image background and gradient overlay */
+.left-background {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-background img {
+    width: 90%;
+    height: 800px;
+    margin-top: 50px;
+    object-fit: contain;
+}
+
+/* Right section background */
+.right-background {
+    flex: 1;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 40px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Top-right logo styling */
+.right-background .top-right-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 74px;
+    z-index: 1;
+}
+
+/* OTP Verification heading */
+.otp-verification-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    width: 100%;
+    max-width: 533px;
+    text-align: center;
+    color: #333;
+    line-height: 1.2;
+    margin-top: 100px;
+}
+
+/* Style for subtext under OTP Verification */
+.subtext {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 533px;
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* New styles for the input container */
+.input-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 533px;
+}
+
+/* Label for mobile number */
+.mobile-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: #111010;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* Mobile number input wrapper */
+.mobile-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+}
+
+.country-code {
+    margin-right: 10px;
+    color: #666;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.mobile-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+/* Terms and conditions container styling */
+.terms-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#terms-checkbox {
+    margin-right: 10px;
+}
+
+.terms-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.terms-link,
+.privacy-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.terms-link:hover,
+.privacy-link:hover {
+    text-decoration: underline;
+}
+
+.cta-button {
+    background-color: #0072ff;
+    color: white;
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 51px;
+    font-size: 1.3em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    text-transform: none;
+}
+
+.cta-button:hover {
+    background-color: #005bb5;
+}

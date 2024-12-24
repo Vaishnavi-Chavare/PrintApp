@@ -1,0 +1,6 @@
+interface Props {
+  percentage: number; // Percentage to display in the chart
+  label: string;      // Title or label for the chart
+  data: number[];     // Array of numbers for pie chart sections
+  colors: string[];   // Colors for pie chart slices
+}

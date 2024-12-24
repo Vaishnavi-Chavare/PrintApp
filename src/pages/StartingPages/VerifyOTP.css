@@ -1,0 +1,164 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+/* Full-page container to control the background sections */
+.full-page-container {
+    display: flex;
+    width: 100%;
+    /* Ensure the container takes full width */
+    height: 100vh;
+    /* Full height */
+}
+
+/* Left section with image background and gradient overlay */
+.left-background {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Img1.png styling in the left background */
+.left-background img {
+    width: 90%;
+    /* Make the image a bit smaller */
+    height: 800px;
+    object-fit: contain;
+    /* Ensures image is resized without cropping */
+}
+
+/* Right section background */
+.right-background {
+    flex: 1;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    padding: 200px 40px; /* Increase top padding */
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+/* OTP Verification heading */
+.otp-verification-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    /* Semi-bold */
+    font-size: 2rem;
+    width: 100%;
+    max-width: 533px;
+    /* Limit width */
+    text-align: center;
+    color: #333;
+    line-height: 1.2;
+    margin-top: 1px;
+    /* Reduce top margin */
+}
+
+/* Style for subtext under OTP Verification */
+/* Style for subtext under OTP Verification */
+.subtext {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 533px; /* Limit width */
+    text-align: center;
+    color: #666;
+    margin-top: 10px; /* Space above */
+    margin-bottom: 30px; /* Add more space below */
+}
+
+/* Terms container styling */
+.terms-container {
+    margin-top: 20px; /* Optional, if subtext already has space */
+    text-align: center; /* Align text */
+}
+
+
+/* OTP Input fields container */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    /* Space below the terms link */
+}
+
+/* Top-right corner logo */
+.top-right-logo {
+    position: absolute;
+    top: 20px;
+    /* Adjust the vertical position */
+    right: 20px;
+    /* Adjust the horizontal position */
+    width: 100px;
+    /* Adjust the logo size */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+    /* Ensure the image fits well */
+}
+
+
+.otp-box {
+    width: 50px;
+    /* Set width equal to height for a square shape */
+    height: 50px;
+    /* Keep height as is */
+    margin: 0 10px;
+    /* Adjust spacing between boxes if needed */
+    text-align: center;
+    font-size: 2rem;
+    /* Adjust font size if needed */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    /* Optional: rounded corners */
+    outline: none;
+    text-transform: uppercase;
+}
+/* Verify OTP Button */
+.cta-button {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 50px; /* High value for a cylindrical shape */
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Ensure space above button */
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* Resend OTP text styling */
+.resend-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    /* Smaller font size */
+    text-align: center;
+    color: #a09595;
+    margin-top: 10px;
+    /* Reduce top margin */
+} 

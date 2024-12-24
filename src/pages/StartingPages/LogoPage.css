@@ -1,0 +1,37 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styling */
+  body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+  }
+  
+  /* Container for the logo with background gradient */
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 1920px; /* Set width */
+    height: 1089px; /* Set height */
+    background: linear-gradient(135deg, #4e73df, #676cc4); /* Blue to Purple Gradient */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo image styling */
+  .logo {
+    max-width: 100%;
+    height: 400px;
+    width: 400px; /* Adjust width as needed */
+  }
+  
