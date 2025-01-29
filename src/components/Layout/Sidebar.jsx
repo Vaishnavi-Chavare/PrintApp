@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import logo from './Logomain.png';
 
 import {
@@ -14,20 +15,34 @@ import {
 const Sidebar = () => {
   const location = useLocation();
 
+  // State to toggle the visibility of subcontainers for Inbox
+  const [isInboxOpen, setIsInboxOpen] = useState(false);
+
   const menuItems = [
     { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
     { path: '/order-list', icon: ListOrdered, label: 'Order List' },
     { path: '/order-details', icon: Package, label: 'Orders Details' },
-    { path: '/inbox', icon: Inbox, label: 'Inbox' },
+    {
+      label: 'Inbox',
+      icon: Inbox,
+      subItems: [
+        { path: '/inbox/chat', label: 'Chat' },
+        { path: '/inbox/mail', label: 'Mail' },
+      ],
+    },
     { path: '/reviews', icon: Star, label: 'Reviews' },
     { path: '/settings', icon: Settings, label: 'Settings' },
   ];
+
+  const handleInboxToggle = () => {
+    setIsInboxOpen(!isInboxOpen);
+  };
 
   return (
     <div className="w-64 h-screen bg-blue-600 fixed left-0 top-0 flex flex-col text-white">
       <div className="p-4">
         <h1 className="text-2xl font-bold">
-          <img src={logo} alt="Logo" className="logo w-40 h-auto" /> {/* Adjusted size */}
+          <img src={logo} alt="Logo" className="logo w-40 h-auto" />
         </h1>
       </div>
 
@@ -35,25 +50,56 @@ const Sidebar = () => {
         <ul className="space-y-2 px-4">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = location.pathname === item.path;
+            const isActive = location.pathname === item.path || location.pathname.startsWith(item.path);
 
             return (
-              <li key={item.path} className="relative">
-                {/* Highlight container */}
-                {isActive && (
-                  <div className="absolute left-0 top-0 h-full w-full bg-white rounded-lg -z-10"></div>
+              <li key={item.label} className="relative">
+                {item.subItems ? (
+                  <div>
+                    {/* Main Inbox button */}
+                    <div
+                      onClick={handleInboxToggle}
+                      className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer ${
+                        isActive ? 'bg-white text-blue-600' : 'text-white hover:bg-blue-500'
+                      }`}
+                    >
+                      <Icon size={20} />
+                      <span>{item.label}</span>
+                    </div>
+
+                    {/* Subcontainers for Chat and Mail */}
+                    {isInboxOpen && (
+                      <ul className="pl-6 space-y-2">
+                        {item.subItems.map((subItem) => (
+                          <li key={subItem.path}>
+                            <Link
+                              to={subItem.path}
+                              className={`block p-2 rounded-lg ${
+                                location.pathname === subItem.path
+                                  ? 'bg-white text-blue-600'
+                                  : 'hover:bg-blue-500'
+                              }`}
+                            >
+                              {subItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className={`flex items-center space-x-3 p-3 rounded-lg transition-colors ${
+                      isActive
+                        ? 'text-blue-600 bg-white'
+                        : 'text-white hover:bg-blue-500'
+                    }`}
+                  >
+                    <Icon size={20} />
+                    <span>{item.label}</span>
+                  </Link>
                 )}
-                <Link
-                  to={item.path}
-                  className={`flex items-center space-x-3 p-3 rounded-lg transition-colors relative z-10 ${
-                    isActive
-                      ? 'text-blue-600 bg-white'
-                      : 'text-white hover:bg-blue-500'
-                  }`}
-                >
-                  <Icon size={20} />
-                  <span>{item.label}</span>
-                </Link>
               </li>
             );
           })}

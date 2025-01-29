@@ -26,11 +26,11 @@ ChartJS.register(
 
 const ChartOrderCard = ({ data }) => {
   const chartData = {
-    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], // Static labels for the days of the week
     datasets: [
       {
         label: 'Orders',
-        data,
+        data, // Data from the parent component (daily orders)
         borderColor: '#339af0',
         borderWidth: 2,
         tension: 0.4,
@@ -52,8 +52,8 @@ const ChartOrderCard = ({ data }) => {
       },
       tooltip: {
         callbacks: {
-          label: (tooltipItem) => `${tooltipItem.raw} Orders`,
-          title: (tooltipItems) => `${tooltipItems[0].label}`,
+          label: (tooltipItem) => `${tooltipItem.raw} Orders`, // Tooltip label format
+          title: (tooltipItems) => `${tooltipItems[0].label}`, // Tooltip title format (day of the week)
         },
       },
     },

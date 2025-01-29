@@ -1,47 +1,68 @@
-import React from "react";
-import './GetOTP.css'; // Adjust the path as needed
-import otpImage from '../../Images/OTP.png'; // Adjust path as needed
-import logo from '../../Images/Printable logo.png'; // Adjust path as needed
+import React, { useState } from "react";
+import './GetOTP.css';
+import otpImage from '../../Images/OTP.png';
+import logo from '../../Images/Printable logo.png';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { requestNotificationPermission } from "../../firebaseConfig";
 
 const GetOTP = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const mobileNumber = location.state?.mobileNumber || "Unavailable";
+
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [error, setError] = useState(false);
+
+  const sendOtpToNumber = async (number) => {
+    try {
+      await requestNotificationPermission();
+      console.log(`Sending OTP to: ${number}`);
+      alert(`OTP sent successfully to ${number}`);
+    } catch (err) {
+      console.error("Error sending OTP:", err);
+      alert("Failed to send OTP. Please try again.");
+    }
+  };
+
+  const handleGetOTPClick = () => {
+    if (!termsAccepted) {
+      setError(true);
+      return;
+    }
+
+    sendOtpToNumber(mobileNumber);
+    navigate('/verification-code', { state: { mobileNumber } });
+  };
+
+  console.log("Mobile number received in GetOTP:", mobileNumber);
+
   return (
     <div className="full-page-container">
-      {/* Left Background with OTP Image */}
       <div className="left-background">
-        <img src={otpImage} alt="Logo in left background" />
+        <img src={otpImage} alt="OTP background" />
       </div>
-
-      {/* Right Background with OTP Verification Content */}
       <div className="right-background">
-        {/* Top-Right Corner Logo */}
-        <img src={logo} alt="Logo in top-right corner" className="top-right-logo" />
-        
+        <img src={logo} alt="Logo" className="top-right-logo" />
         <h1 className="otp-verification-text">OTP Verification</h1>
         <p className="subtext">We will send you One Time Password on your Phone Number</p>
-        
-        {/* Mobile Number Input and Terms Checkbox */}
         <div className="input-container">
           <label htmlFor="mobile-number" className="mobile-label">Mobile number</label>
           <div className="mobile-input-wrapper">
             <span className="country-code">+91</span>
-            <input
-              type="text"
-              id="mobile-number"
-              placeholder="123 456 7890"
-              className="mobile-input"
-            />
+            <input type="text" id="mobile-number" value={mobileNumber} readOnly className="mobile-input" />
           </div>
-          
           <div className="terms-container">
-            <input type="checkbox" id="terms-checkbox" />
-            <label htmlFor="terms-checkbox" className="terms-text">
-              I have read and agreed to{" "}
-              <a href="#" className="terms-link">Terms, Conditions</a> and{" "}
-              <a href="#" className="privacy-link">Privacy Policy</a>
+            <input
+              type="checkbox"
+              id="terms-checkbox"
+              checked={termsAccepted}
+              onChange={(e) => setTermsAccepted(e.target.checked)}
+            />
+            <label htmlFor="terms-checkbox" className={`terms-text ${error && !termsAccepted ? "error" : ""}`}>
+              I have read and agreed to <a href="#">Terms, Conditions</a> and <a href="#">Privacy Policy</a>
             </label>
           </div>
-          
-          <button className="cta-button">Get OTP</button>
+          <button className="cta-button" onClick={handleGetOTPClick}>Get OTP</button>
         </div>
       </div>
     </div>

@@ -43,6 +43,7 @@ const PieChartCard = ({
       </div>
       <p className="mt-2 text-sm text-gray-700">{label}</p>
     </div>
+    
   );
 };
 

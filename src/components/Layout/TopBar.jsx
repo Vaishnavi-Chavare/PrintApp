@@ -1,5 +1,6 @@
 import { Search, Bell, MessageCircle } from 'lucide-react'; // Use MessageCircle for chat/message icon
 
+
 const TopBar = () => {
   return (
     <div className="h-16 bg-white shadow-sm flex items-center justify-between px-6">
