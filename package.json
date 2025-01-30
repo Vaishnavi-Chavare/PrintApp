@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@firebase/messaging": "^0.12.15",
-    "agora-rtc-sdk-ng": "^4.22.0",  
+    "agora-rtc-sdk-ng": "^4.23.0",
     "agora-rtm-sdk": "^2.2.1",
     "chart.js": "^3.9.1",
     "date-fns": "^4.1.0",
@@ -20,14 +20,14 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^0.344.0",
     "prop-types": "^15.8.1",
-    "react": "^17.0.1",  
+    "react": "^18.3.1",
     "react-chartjs-2": "^4.3.1",
     "react-circular-progressbar": "^2.1.0",
     "react-date-range": "^2.0.1",
-    "react-dom": "^17.0.1",  
+    "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-leaflet": "^3.2.5",
-    "react-router-dom": "^6.28.2",
+    "react-router-dom": "^7.1.3",
     "recharts": "^2.12.2"
   },
   "devDependencies": {
